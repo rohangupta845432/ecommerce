@@ -1,0 +1,10 @@
+.hero {
+  background-color: #777;
+  padding-bottom: 30px;
+}
+.hero h1 {
+  font-size: 120px;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 600;
+  color: #fff;
+}
