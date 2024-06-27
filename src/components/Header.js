@@ -1,10 +1,10 @@
 import Navbar from "./Navbar";
 import Hero from "./Hero";
 
-const Header = () => {
+const Header = (props) => {
   return (
     <>
-      <Navbar />
+      <Navbar oncartShowHandler={props.onCartShowButtonHandler} />
       <Hero />
     </>
   );

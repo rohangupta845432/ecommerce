@@ -1,7 +1,7 @@
 import React from "react";
 import "./Navbar.css";
 
-const Navbar = () => {
+const Navbar = (props) => {
   return (
     <div className="navbar navbar-expand-sm navbar-dark bg-dark">
       <div className="d-flex justify-content-center">
@@ -15,6 +15,14 @@ const Navbar = () => {
             <button className="nav-link">Link</button>
           </li>
         </ul>
+        <button
+          className="btn btn-sm btn-danger"
+          onClick={() => {
+            props.oncartShowHandler();
+          }}
+        >
+          Cart
+        </button>
       </div>
     </div>
   );

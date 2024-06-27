@@ -1,41 +1,86 @@
 import React from "react";
+import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Products from "./components/Products";
+import Cart from "./components/Cart";
+const productsArr = [
+  {
+    title: "Colors",
+    price: 100,
+    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
+  },
 
+  {
+    title: "Black and white Colors",
+    price: 50,
+    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
+  },
+
+  {
+    title: "Yellow and Black Colors",
+    price: 70,
+    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
+  },
+
+  {
+    title: "Blue Color",
+    price: 100,
+    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
+  },
+];
+
+const cartElements = [
+  {
+    title: "Colors",
+    price: 100,
+    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
+    quantity: 2,
+  },
+  {
+    title: "Black and white Colors",
+    price: 50,
+    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
+    quantity: 3,
+  },
+
+  {
+    title: "Yellow and Black Colors",
+    price: 70,
+    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
+    quantity: 1,
+  },
+];
 const App = () => {
-  const productsArr = [
-    {
-      title: "Colors",
-      price: 100,
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-    },
+  const [isCartShow, setIsCartShow] = useState(true);
+  const [cartItem, setcartItem] = useState(cartElements);
+  const cartShowButtonHandler = () => {
+    setIsCartShow(true);
+  };
 
-    {
-      title: "Black and white Colors",
-      price: 50,
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-    },
+  const cartHideButtonHandler = () => {
+    setIsCartShow(false);
+  };
 
-    {
-      title: "Yellow and Black Colors",
-      price: 70,
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-    },
+  const cartItemRemove = (itemname) => {
+    console.log("hello");
+    setcartItem((currentValue) => {
+      return currentValue.filter((item) => {
+        return item.title != itemname;
+      });
+    });
+  };
 
-    {
-      title: "Blue Color",
-      price: 100,
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
-    },
-  ];
   return (
     <div>
-      <Header></Header>
+      {isCartShow && (
+        <Cart
+          cartItems={cartItem}
+          onCartItemRemoveHandler={cartItemRemove}
+          oncartHideHandler={cartHideButtonHandler}
+        />
+      )}
+      <Header onCartShowButtonHandler={cartShowButtonHandler}></Header>
       <Products productsArr={productsArr}></Products>
     </div>
   );
