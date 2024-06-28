@@ -6,7 +6,7 @@ const CartItem = (props) => {
         <img className={styles.cartItem__img} src={props.imageUrl} />
         <h4 className={styles.cartItem__title}>{props.title}</h4>
       </td>
-      <td>${props.quantity}</td>
+      <td>${props.price}</td>
       <td>
         <input className={styles.cartItem__qty} value={props.quantity} />
         <button

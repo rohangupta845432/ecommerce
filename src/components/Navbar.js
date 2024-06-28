@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Navbar.css";
-
+import CartContext from "../store/cart-context";
 const Navbar = (props) => {
+  const cartContext = useContext(CartContext);
   return (
     <div className="navbar navbar-expand-sm navbar-dark bg-dark">
       <div className="d-flex justify-content-center">
@@ -22,6 +23,7 @@ const Navbar = (props) => {
           }}
         >
           Cart
+          <span class="badge badge-light">{cartContext.totalItem}</span>
         </button>
       </div>
     </div>

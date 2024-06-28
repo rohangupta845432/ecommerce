@@ -4,6 +4,7 @@ import "./App.css";
 import Header from "./components/Header";
 import Products from "./components/Products";
 import Cart from "./components/Cart";
+import CartProvider from "./store/CartProvider";
 const productsArr = [
   {
     title: "Colors",
@@ -72,7 +73,7 @@ const App = () => {
   };
 
   return (
-    <div>
+    <CartProvider>
       {isCartShow && (
         <Cart
           cartItems={cartItem}
@@ -82,7 +83,7 @@ const App = () => {
       )}
       <Header onCartShowButtonHandler={cartShowButtonHandler}></Header>
       <Products productsArr={productsArr}></Products>
-    </div>
+    </CartProvider>
   );
 };
 

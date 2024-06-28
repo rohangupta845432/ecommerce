@@ -1,6 +1,10 @@
 import CartItem from "./CartItem";
 import styles from "./Cart.module.css";
+import CartContext from "../store/cart-context";
+import { useContext } from "react";
 const Cart = (props) => {
+  const cartContext = useContext(CartContext);
+
   return (
     <div className={styles.cart}>
       <div className="d-flex justify-content-end">
@@ -21,10 +25,10 @@ const Cart = (props) => {
           <th>PRICE </th>
           <th>QUANTITY </th>
         </tr>
-        {props.cartItems.map((cartItem) => {
+        {cartContext.cartItems.map((cartItem) => {
           return (
             <CartItem
-              onRemoveHandle={props.onCartItemRemoveHandler}
+              onRemoveHandle={cartContext.removeItemIntoCart}
               title={cartItem.title}
               price={cartItem.price}
               imageUrl={cartItem.imageUrl}

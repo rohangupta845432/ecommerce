@@ -8,7 +8,18 @@ const Product = (props) => {
         <img className="card-img-top" src={props.imageUrl} alt="Card" />
         <div className="card-body d-flex justify-content-between">
           <p>${props.price}</p>
-          <button className="btn btn-primary">Add To Cart</button>
+          <button
+            className="btn btn-primary"
+            onClick={() => {
+              props.onAddtoCart({
+                title: props.title,
+                price: props.price,
+                imageUrl: props.imageUrl,
+              });
+            }}
+          >
+            Add To Cart
+          </button>
         </div>
       </div>
     </div>
