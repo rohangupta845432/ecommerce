@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-import Header from "../components/Header";
+// import Header from "../components/Layout/Header";
 import Products from "../components/Products";
 import Cart from "../components/Cart";
 import CartProvider from "../store/CartProvider";
@@ -52,7 +52,7 @@ const cartElements = [
   },
 ];
 const Products_page = () => {
-  const [isCartShow, setIsCartShow] = useState(true);
+  const [isCartShow, setIsCartShow] = useState(false);
   const [cartItem, setcartItem] = useState(cartElements);
   const cartShowButtonHandler = () => {
     setIsCartShow(true);
@@ -80,7 +80,7 @@ const Products_page = () => {
           oncartHideHandler={cartHideButtonHandler}
         />
       )}
-      <Header onCartShowButtonHandler={cartShowButtonHandler}></Header>
+      {/* <Header onCartShowButtonHandler={cartShowButtonHandler}></Header> */}
       <Products productsArr={productsArr}></Products>
     </CartProvider>
   );
