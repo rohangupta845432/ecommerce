@@ -23,7 +23,7 @@ const LoginForm = () => {
     let emailValue = emailRef.current.value;
     let passwordValue = passwordReff.current.value;
     fetch(
-      "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBIbNTYU0iRjY2StvrObVWKjSgg3LK5oUQ",
+      "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=******",
       {
         method: "POST",
         body: JSON.stringify({
